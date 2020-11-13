@@ -12,9 +12,24 @@ def arithmetic_arranger(problems):
     for i in range(len(problems)):
         problem_split = problems[i].split()
         
-        #Operand should be '+' or '-' only
+        #Operator should be '+' or '-' only
         if problem_split[1] != '+' or problem_split[1] != '-':
-            return('Error: Operand must be "+" or "-" only.')
+            return('Error: Operator must be "+" or "-" only.')
+        
+        #Operands should contain only digits
+        try:
+            operator1 = int(problem_split[0])
+            operator2 = int(problem_split[2])
+        except:
+            return('Error: Numbers must contain only digits.')
+
+        #Operands should not be longer than 4 digits
+        if operator1 > 9999 or operator2 > 9999:
+            return('Error: Numbers cannot be more than four digits.')
+        
+
+
+
 
 
     return arranged_problems
