@@ -31,7 +31,8 @@ def arithmetic_arranger(problems):
         problem_split2 = problems[1].split()   
         problem_split3 = problems[2].split()   
         problem_split4 = problems[3].split()
-        problem_split5 = problems[4].split() 
+        problem_split5 = problems[4].split()
+
 
     #Operator should be '+' or '-' only
     if problem_split[1] != '+' or problem_split[1] != '-':
