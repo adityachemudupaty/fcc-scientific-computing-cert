@@ -89,7 +89,7 @@ def add_time(start, duration, day = False):
 
     new_time = new_time + ' ' + final_day.title() + ' ' + end_string
 #    print(new_time)
-    return(new_time)
+    return(new_time.rstrip())
 
 
 
