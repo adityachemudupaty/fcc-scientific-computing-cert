@@ -61,14 +61,16 @@ def add_time(start, duration, day = False):
     elif hours_carry >= 2:
         end_string = '({} days later)'.format(hours_carry)
     else:
-        end_string = ''
+      end_string = ''
 
-    if new_final_hours > 12:
+    if new_final_hours >= 12:
         PM = 'PM' 
         new_final_hours = new_final_hours % 12
     else:
         PM = 'AM' 
-
+    
+    if new_final_hours == 00:
+        new_final_hours = 12
     new_time = '{}:{}'.format(new_final_hours, str(final_minutes).zfill(2)) + ' ' + PM 
 
 
@@ -86,31 +88,29 @@ def add_time(start, duration, day = False):
     final_string = new_time + ' ' + end_string
 
     new_time = new_time + ' ' + final_day.title() + ' ' + end_string
+
+
+    new_time = new_time.rstrip()
+
     print(new_time)
-    return(new_time)
+    
 
-add_time('3:00 PM', '3:10')
-add_time("11:30 AM", "2:32", "Monday")
-add_time("11:43 AM", "00:20")
-add_time("10:10 PM", "3:30")
-add_time("11:43 PM", "24:20", "tueSday")
-add_time("6:30 PM", "205:12")
+    return(new_time.rstrip())
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+#add_time("3:30 PM", "2:12")
+#add_time("11:55 AM", "3:12")
+#add_time("9:15 PM", "5:30")
+#add_time("11:40 AM", "0:25")
+#add_time("2:59 AM", "24:00")
+#add_time("11:59 PM", "24:05")
+#add_time("8:16 PM", "466:02")
+#add_time("5:01 AM", "0:00")
+#add_time("3:30 PM", "2:12", "Monday")
+#add_time("2:59 AM", "24:00", "saturDay")
+#add_time("11:59 PM", "24:05", "Wednesday")
+add_time("8:16 PM", "466:02", "tuesday")
 
 
 
