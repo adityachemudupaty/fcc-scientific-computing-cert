@@ -86,8 +86,10 @@ def add_time(start, duration, day = False):
 
 
     final_string = new_time + ' ' + end_string
-
-    new_time = new_time + ' ' + final_day.title() + ' ' + end_string
+    if final_day == '':
+        new_time = new_time + ' ' + end_string
+    else:
+        new_time = new_time + ' ' + final_day.title() + ' ' + end_string
     print(new_time)
     return(new_time.rstrip())
 
