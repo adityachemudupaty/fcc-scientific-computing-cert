@@ -105,7 +105,7 @@ def add_time(start, duration, day = False):
 #add_time("2:59 AM", "24:00", "saturDay")
 #add_time("11:59 PM", "24:05", "Wednesday")
 #add_time("8:16 PM", "466:02", "tuesday")
-
+add_time("11:59 PM", "24:05", "Wednesday")
 
 
 
