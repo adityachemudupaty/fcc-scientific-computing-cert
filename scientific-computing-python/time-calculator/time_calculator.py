@@ -12,7 +12,7 @@ def add_time(start, duration, day = False):
     start_list = start.split()
     start_time = start_list[0]
 
-    # Split time into hours and minutes 
+    # Split time into hours and minutes
     if start_list[1] == 'PM':
         hours_to_add = 12
     else:
@@ -45,15 +45,15 @@ def add_time(start, duration, day = False):
     new_final_minutes = final_minutes
     if new_final_minutes >= 60:
         final_minutes = new_final_minutes % 60
-        minutes_carry = new_final_minutes // 60 
+        minutes_carry = new_final_minutes // 60
 
 
     hours_carry = 0
     new_final_hours = final_hours + minutes_carry
     if final_hours >= 24:
+#        new_final_hours = new_final_hours % 24
+        hours_carry = new_final_hours // 24
         new_final_hours = new_final_hours % 24
-        hours_carry = final_hours // 24
-
 
     # Write ending string
     if hours_carry == 1:
@@ -64,20 +64,20 @@ def add_time(start, duration, day = False):
         end_string = ''
 
     if new_final_hours >= 12:
-        PM = 'PM' 
+        PM = 'PM'
         new_final_hours = new_final_hours % 12
     else:
-        PM = 'AM' 
+        PM = 'AM'
     
     if new_final_hours == 00:
         new_final_hours = 12
-    new_time = '{}:{}'.format(new_final_hours, str(final_minutes).zfill(2)) + ' ' + PM 
+    new_time = '{}:{}'.format(new_final_hours, str(final_minutes).zfill(2)) + ' ' + PM
 
 
     if day != False:
         day = day.lower()
         new_time = new_time + ','
-        day_num = day_dict_2[day] 
+        day_num = day_dict_2[day]
         day_num = int(day_num) + hours_carry
         final_day = day_dict[str(day_num % 7)]
     else:
@@ -88,7 +88,7 @@ def add_time(start, duration, day = False):
     final_string = new_time + ' ' + end_string
 
     new_time = new_time + ' ' + final_day.title() + ' ' + end_string
-#    print(new_time)
+    print(new_time)
     return(new_time.rstrip())
 
 
@@ -107,6 +107,7 @@ def add_time(start, duration, day = False):
 #add_time("8:16 PM", "466:02", "tuesday")
 add_time("11:59 PM", "24:05", "Wednesday")
 
+#12:04 AM, Thursday (next day)
 
 
 
