@@ -1,6 +1,4 @@
 def add_time(start, duration, day = False):
-    
-
 
     # define day dictionaries
     day_dict = {'1': 'sunday', '2': 'monday', '3': 'tuesday', '4': 'wednesday', '5': 'thursday', '6': 'friday', '7': 'saturday'}
@@ -32,13 +30,11 @@ def add_time(start, duration, day = False):
     d_hour = int(d_hour)
     d_minutes = int(d_minutes)
     
-
     # Add times together
 
     final_hours = d_hour + start_hour
     final_minutes = d_minutes + start_minutes
     
-
     # Account for duration causing days to change
  
     minutes_carry = 0
@@ -51,7 +47,7 @@ def add_time(start, duration, day = False):
     hours_carry = 0
     new_final_hours = final_hours + minutes_carry
     if final_hours >= 24:
-#        new_final_hours = new_final_hours % 24
+        # new_final_hours = new_final_hours % 24
         hours_carry = new_final_hours // 24
         new_final_hours = new_final_hours % 24
 
@@ -73,7 +69,6 @@ def add_time(start, duration, day = False):
         new_final_hours = 12
     new_time = '{}:{}'.format(new_final_hours, str(final_minutes).zfill(2)) + ' ' + PM
 
-
     if day != False:
         day = day.lower()
         new_time = new_time + ','
@@ -83,8 +78,6 @@ def add_time(start, duration, day = False):
     else:
         final_day = ''
 
-
-
     final_string = new_time + ' ' + end_string
     if final_day == '':
         new_time = new_time + ' ' + end_string
@@ -92,7 +85,6 @@ def add_time(start, duration, day = False):
         new_time = new_time + ' ' + final_day.title() + ' ' + end_string
     print(new_time)
     return(new_time.rstrip())
-
 
 
 #add_time("3:30 PM", "2:12")
